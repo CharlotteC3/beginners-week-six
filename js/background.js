@@ -12,20 +12,25 @@ $( document ).ready(function(){
   $('h1').on('click', function () {
 
     // 1. log to the console that you have clicked the button
-
+    console.log("pressed")
     // this selects a randon background from above and stores it as the variable 'randomBackground'
     var randomBackground = backgrounds[Math.floor(Math.random() * backgrounds.length)];
     // this creates a string that css will understand to be a background url
     var imageUrl = "url('./images/" + randomBackground + ".jpg')"
-    
-    
+
     // 2. using jquery, change the image url of the body background to the new one saved above
+    $('body').css('background',imageUrl);
+
+    //var old = $('.photographer').val();
 
     // EXTENSION TASK!
     // 3. Change the text of the 'span' to be that of the photographer
     //   (hint, you should re-use randomBackgroun)
     // Double points if you replace '-' between their names with a space
+    //var str = document.getElementsByClassName("photographer").innerHTML;
+    var artist = randomBackground.replace(/-/g, ' ');
+    $('span').text(artist)
+    //$('.photographer').append(str); //replace(old,randomBackground);
 
-    
-  }) 
+  })
 }) // here endeth the function
